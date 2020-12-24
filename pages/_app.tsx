@@ -6,7 +6,9 @@ import Backdrop from "../components/Backdrop";
 import {GlobalProvider} from "../context/globalState";
 import FlightDetails from "../components/FlightDetails";
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-  
+  React.useEffect(() => {
+    document.title="Check your flight"
+  },[])
   return(
     <>
       <GlobalProvider>
