@@ -34,7 +34,7 @@ const Flights: FunctionComponent<Props> = ({  from,
         </p>
           <p className="details">{from} - {to}</p>
         </div>
-        {parseInt(stop) == 0 ?
+        {stop == 0 ?
           <p className="time disp-space" >Non Stop</p> : <p className="time disp-space">{stop} Stop</p>}
         <span className="ll"></span>
         <div className="disp-space">
@@ -57,7 +57,7 @@ const Flights: FunctionComponent<Props> = ({  from,
     {fdu.split(":")[0]}h {fdu.split(":")[1]}m  <img src={`https://images.travelxp.com/images/txpin/vector/airlines/${airline}.svg`} className="airlineimg" />
 </p>
             <p className="flight-dec"></p>
-            {parseInt(stop) == 0 ?
+            {stop == 0 ?
   <p className="time stops-width" >Non Stop</p> : <p className="time stops-width">{stop} Stop</p>}
           </div>
           <div className="width-time">

@@ -75,7 +75,7 @@ export default function FlightDetails() {
                   <p className="item">
               
                     <img src="https://images.travelxp.com/images/txpin/vector/general/meals.svg" className="jsx-1201596912 mealimg"></img>
-                    {(item.freemeal)! = "0" ? <span className="meals">Meals Included</span> : <span className="meals">No meals</span>}
+                    {(item.freemeal)!== 0 ? <span className="meals">Meals Included</span> : <span className="meals">No meals</span>}
                   </p>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default function FlightDetails() {
                   <p className="item">
               
                     <img src="https://images.travelxp.com/images/txpin/vector/general/meals.svg" className="jsx-1201596912 mealimg"></img>
-                    {(item.freemeal)! = "0" ? <span className="meals">Meals Included</span> : <span className="meals">No meals</span>}
+                    {(item.freemeal)!== 0 ? <span className="meals">Meals Included</span> : <span className="meals">No meals</span>}
                   </p>
                 </div>
               </div>
@@ -209,7 +209,7 @@ export default function FlightDetails() {
                   <p className="item">
               
                     <img src="https://images.travelxp.com/images/txpin/vector/general/meals.svg" className="jsx-1201596912 mealimg"></img>
-                    {(item.freemeal)! = "0" ? <span className="meals">Meals Included</span> : <span className="meals">No meals</span>}
+                    {(item.freemeal)!== 0 ? <span className="meals">Meals Included</span> : <span className="meals">No meals</span>}
                   </p>
                 </div>
               </div>
