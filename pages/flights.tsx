@@ -33,6 +33,7 @@ const Flights = () => {
   const [infant_pass, setInfantPass] = useState(0);
   const [departure, setDeparture] = useState<string>("");
   const [arrival, setArrival] = useState<string>("");
+  const [loadingcity,setLoadingCity] = useState<Boolean>(false)
   const [value, onChange] = useState<Date>(new Date());
   const [datefor, setDateFor] = useState("oneway");
   const [current_option, setCurrentOption] = useState<string>("");
@@ -127,12 +128,12 @@ const Flights = () => {
     setFormState("calender");
   }
   async function searchCity(search_val: string,) {
-
+    setLoadingCity(true)
     if (search_val.length >= 3) {
       const body:Object = {
         Input : search_val.toString()
       }
-      fetch("https://api.travelxp.com/flights/searchairports", {
+      await fetch("https://api.travelxp.com/flights/searchairports", {
         method: 'POST',
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },
@@ -141,9 +142,13 @@ const Flights = () => {
       }).then((re) => {
         console.log(re)
         setSearchCity(re);
+        setLoadingCity(false)
      })
     } else if (search_city.length != 0) {
+      setLoadingCity(false)
       setSearchCity([])
+    } else {
+      setLoadingCity(false)
     }
   }
   async function selectFinalCity(val) {
@@ -448,12 +453,14 @@ const Flights = () => {
               onChange={(e)=>searchCity(e.target.value.toString())}
               className="searchcity" />
             <div className="search-list">
+              {loadingcity ? <div className="loader spaceup"></div> : <>
             {search_city.map((item, key) => (
-              <div key={key} className="search-item" onClick={()=>selectFinalCity(item)}>
-                <img src={item.imgsrc} className="search-flag"/>
-                <p className="search-name">{item.city}</p>
+                <div key={key} className="search-item" onClick={() => selectFinalCity(item)}>
+                  <img src={item.imgsrc} className="search-flag" />
+                  <p className="search-name">{item.city}</p>
                 </div>
-            ))}
+              ))}
+              </>}
               </div>
           </div>
         )}
