@@ -372,7 +372,7 @@ filter_data.stops = stops;
                     {props.data.fltAl.map((item:fltal, index) => (
                       <div className="airline" key={index}>
                         <div>
-                          <input type="checkbox" id={item.aln} name={item.aln} value={item.aln} checked={filter_data.airlines.indexOf(item.aln) != -1 ? true : false} className="airline-check" onClick={() => filterAirline(item.aln.toString())} />
+                          <input type="checkbox" readOnly id={item.aln} name={item.aln} value={item.aln} checked={filter_data.airlines.indexOf(item.aln) != -1 ? true : false} className="airline-check" onClick={() => filterAirline(item.aln.toString())} />
                           <label htmlFor={item.aln}> {item.aln}</label>
                         </div>
                         <p><span style={{ fontSize: "15px", opacity: 0.5 }}>₹</span> <span className="airlines-cost">{item.minfare}</span></p>

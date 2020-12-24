@@ -25,6 +25,7 @@ const Flights = () => {
     "Dec",
   ]
   const today = (new Date());
+  const [loading,setLoading]= useState<Boolean>(false)
   const [current_search, setCurrentSearch] = useState<string>("oneway")
   const [adult_pass, setAdultPass] = useState(1);
   const [children_pass, setChildPass] = useState(0);
@@ -273,125 +274,139 @@ const Flights = () => {
                   </div>
                 </div>
               </div>
-              {current_search == "oneway" ?
-                <Link href={{
-                  pathname: "/search", query: {
-                    adt: adult_pass.toString(),
-                    chd: children_pass.toString(),
-                    cls: "Economy",
-                    dirt: "1",
-                    dt1: `${current_date[3]}-${tofrom.currentmonth}-${current_date[2]}`,
-                    dt2: "1900-01-01",
-                    dt3: "1900-01-01",
-                    dt4: "1900-01-01",
-                    dt5: "1900-01-01",
-                    dt6: "1900-01-01",
-                    fr1: tofrom.frcode,
-                    fr1City: tofrom.frcity,
-                    fr1Country: tofrom.frcountry,
-                    fr2: "",
-                    fr2City: "",
-                    fr2Country: "",
-                    fr3: "",
-                    fr3City: "",
-                    fr4: "",
-                    fr4City: "",
-                    fr4Country: "",
-                    fr5: "",
-                    fr5City: "",
-                    fr5Country: "",
-                    fr6: "",
-                    fr6City: "",
-                    fr6Country: "",
-                    inf: "0",
-                    said: 1,
-                    segCount: "1",
-                    to1: tofrom.tocode,
-                    to1City: tofrom.tocity,
-                    to1Country: tofrom.tocountry,
-                    to2: "",
-                    to2City: "",
-                    to2Country: "",
-                    to3: "",
-                    to3City: "",
-                    to3Country: "",
-                    to4: "",
-                    to4City: "",
-                    to4Country: "",
-                    to5: "",
-                    to5City: "",
-                    to5Country: "",
-                    to6: "",
-                    to6City: "",
-                    to6Country: "",
-                    typ: "ow",
-                    uid: 0,
-                    zone: "Dom"
-                  }
-                }}>
-                  <p className="search-flight">
+              {loading ?  <div className="search-flight lowop">
+                    
+<p className="loader"></p>
+
+                 </div> : <>
+                {tofrom.frcode === "" && tofrom.tocode === "" ?
+              
+                  <p className="search-flight lowop">
                     Search Flight
+                 </p>
+                  :
+                  <>
+                    {current_search == "oneway" ?
+                      <div onClick={() => setLoading(true)} style={{ width: "90%" }}>
+                        <Link href={{
+                          pathname: "/search", query: {
+                            adt: adult_pass.toString(),
+                            chd: children_pass.toString(),
+                            cls: "Economy",
+                            dirt: "1",
+                            dt1: `${current_date[3]}-${tofrom.currentmonth}-${current_date[2]}`,
+                            dt2: "1900-01-01",
+                            dt3: "1900-01-01",
+                            dt4: "1900-01-01",
+                            dt5: "1900-01-01",
+                            dt6: "1900-01-01",
+                            fr1: tofrom.frcode,
+                            fr1City: tofrom.frcity,
+                            fr1Country: tofrom.frcountry,
+                            fr2: "",
+                            fr2City: "",
+                            fr2Country: "",
+                            fr3: "",
+                            fr3City: "",
+                            fr4: "",
+                            fr4City: "",
+                            fr4Country: "",
+                            fr5: "",
+                            fr5City: "",
+                            fr5Country: "",
+                            fr6: "",
+                            fr6City: "",
+                            fr6Country: "",
+                            inf: "0",
+                            said: 1,
+                            segCount: "1",
+                            to1: tofrom.tocode,
+                            to1City: tofrom.tocity,
+                            to1Country: tofrom.tocountry,
+                            to2: "",
+                            to2City: "",
+                            to2Country: "",
+                            to3: "",
+                            to3City: "",
+                            to3Country: "",
+                            to4: "",
+                            to4City: "",
+                            to4Country: "",
+                            to5: "",
+                            to5City: "",
+                            to5Country: "",
+                            to6: "",
+                            to6City: "",
+                            to6Country: "",
+                            typ: "ow",
+                            uid: 0,
+                            zone: "Dom"
+                          }
+                        }}>
+                          <p className="search-flight">
+                            Search Flight
              </p>
-                </Link> :
-                <Link href={{
-                  pathname: "/search", query: {
-                    adt: adult_pass.toString(),
-                    chd: children_pass.toString(),
-                    cls: "Economy",
-                    dirt: "1",
-                    dt1: `${current_date[3]}-${tofrom.currentmonth}-${current_date[2]}`,
-                    dt2: `${return_date[3]}-${tofrom.returnmonth}-${return_date[2]}`,
-                    dt3: "1900-01-01",
-                    dt4: "1900-01-01",
-                    dt5: "1900-01-01",
-                    dt6: "1900-01-01",
-                    fr1: tofrom.frcode,
-                    fr1City: tofrom.frcity,
-                    fr1Country: tofrom.frcountry,
-                    fr2: tofrom.tocode,
-                    fr2City: tofrom.tocity,
-                    fr2Country: tofrom.tocountry,
-                    fr3: "",
-                    fr3City: "",
-                    fr4: "",
-                    fr4City: "",
-                    fr4Country: "",
-                    fr5: "",
-                    fr5City: "",
-                    fr5Country: "",
-                    fr6: "",
-                    fr6City: "",
-                    fr6Country: "",
-                    inf: "0",
-                    said: 1,
-                    segCount: "2",
-                    to1: tofrom.tocode,
-                    to1City: tofrom.tocity,
-                    to1Country: tofrom.tocountry,
-                    to2: tofrom.frcode,
-                    to2City: tofrom.frcity,
-                    to2Country: tofrom.frcountry,
-                    to3: "",
-                    to3City: "",
-                    to3Country: "",
-                    to4: "",
-                    to4City: "",
-                    to4Country: "",
-                    to5: "",
-                    to5City: "",
-                    to5Country: "",
-                    to6: "",
-                    to6City: "",
-                    to6Country: "",
-                    typ: "rt",
-                    uid: 0,
-                    zone: "Dom"
-                  }
-                }}>
-                  <p className="search-flight">
-                    Search Flight
+                        </Link></div> :
+                      <div onClick={() => setLoading(true)} style={{ width: "90%" }}>
+                        <Link href={{
+                          pathname: "/search", query: {
+                            adt: adult_pass.toString(),
+                            chd: children_pass.toString(),
+                            cls: "Economy",
+                            dirt: "1",
+                            dt1: `${current_date[3]}-${tofrom.currentmonth}-${current_date[2]}`,
+                            dt2: `${return_date[3]}-${tofrom.returnmonth}-${return_date[2]}`,
+                            dt3: "1900-01-01",
+                            dt4: "1900-01-01",
+                            dt5: "1900-01-01",
+                            dt6: "1900-01-01",
+                            fr1: tofrom.frcode,
+                            fr1City: tofrom.frcity,
+                            fr1Country: tofrom.frcountry,
+                            fr2: tofrom.tocode,
+                            fr2City: tofrom.tocity,
+                            fr2Country: tofrom.tocountry,
+                            fr3: "",
+                            fr3City: "",
+                            fr4: "",
+                            fr4City: "",
+                            fr4Country: "",
+                            fr5: "",
+                            fr5City: "",
+                            fr5Country: "",
+                            fr6: "",
+                            fr6City: "",
+                            fr6Country: "",
+                            inf: "0",
+                            said: 1,
+                            segCount: "2",
+                            to1: tofrom.tocode,
+                            to1City: tofrom.tocity,
+                            to1Country: tofrom.tocountry,
+                            to2: tofrom.frcode,
+                            to2City: tofrom.frcity,
+                            to2Country: tofrom.frcountry,
+                            to3: "",
+                            to3City: "",
+                            to3Country: "",
+                            to4: "",
+                            to4City: "",
+                            to4Country: "",
+                            to5: "",
+                            to5City: "",
+                            to5Country: "",
+                            to6: "",
+                            to6City: "",
+                            to6Country: "",
+                            typ: "rt",
+                            uid: 0,
+                            zone: "Dom"
+                          }
+                        }}>
+                          <p className="search-flight">
+                            Search Flight
              </p>
-                </Link>}
+                        </Link></div>}</>}</>}
         </div>
           </>
         )}
@@ -416,7 +431,7 @@ const Flights = () => {
               }}
               minDate={new Date()}
               value={value}
-              
+              className="cal"
             />
             </div>
         )}

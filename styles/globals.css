@@ -6,7 +6,27 @@ body, div,p, ul,li,span,svg,section {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 }
+.loader {
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 0 auto;
+  border-top: 2px solid #F4F8FD;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
 
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 body{
   overflow-x: hidden;
 }
@@ -15,7 +35,7 @@ a {
   text-decoration: none;
 }
 .main-app{
-  background-color:"#F4F8FD";
+  background-color:#F4F8FD;
   height:90vh;
   overflow:scroll;overflow-x:hidden;
   margin-top: 70px;
@@ -453,7 +473,7 @@ justify-content: center;
   }
   .filteritem{
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
     background-color: white;
     height: 50px;
     border-radius: 30px;
@@ -1133,7 +1153,12 @@ cursor: pointer;
     width: 95vw;
     margin-left: 0px;
   }
+  .booknow-main{
+    height: 40px;
+    width: 90vw;
   
+    margin: 10px auto;
+  }
   .return-details-box{
   
     display: flex;
@@ -1149,6 +1174,10 @@ cursor: pointer;
     margin-left: 0px;
     width: 95vw;
   }
+  
+.home-img{
+width: 90vw;
+}
   .flight:hover{
     border:none;
     padding :30px 0;
@@ -1172,4 +1201,8 @@ cursor: pointer;
 .homelink.jsx-1821687595 {
   -webkit-mask: url(https://images.travelxp.com/images/txpin/vector/general/home.svg);
   mask: url(https://images.travelxp.com/images/txpin/vector/general/home.svg);
+}
+
+.lowop{
+  opacity: 0.5;
 }

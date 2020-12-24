@@ -33,7 +33,7 @@ const Home = () => {
      }, 5000);
   }, [])
   return (
-    <div style={{ width: "100vw" }}>
+    <div style={{ width: "100vw",height:"85vh" }}>
       <div data-aos="fade-left"
           
           data-aos-delay="50"
