@@ -36,7 +36,7 @@ const InitialState:Props = {
   
 }
 
-export const GlobalContext = createContext<ContextType>(InitialState);
+export const GlobalContext = createContext<Props>(InitialState);
 
 const AppReducer = (state:Props, action:IAppAction) => {
   switch (action.type) {
@@ -61,7 +61,7 @@ const AppReducer = (state:Props, action:IAppAction) => {
     default: return;
   }
 }
-export const GlobalProvider:React.FC = ({ children }) => {
+export const GlobalProvider:React.FC<ContextType> = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, InitialState);
 
   function changeShow() {
@@ -70,7 +70,7 @@ export const GlobalProvider:React.FC = ({ children }) => {
     })
    
   }
-  function flightDetails(details:flt):IAppAction {
+  function flightDetails(details:flt){
     dispatch({
       type: "FLIGHT_DETAILS",
       payload:details
