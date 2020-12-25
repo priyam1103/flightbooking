@@ -3,7 +3,7 @@ import Link from "next/link"
 import { GlobalContext } from "../context/globalState";
 export default function FlightDetails() {
   const { changeShow, flightdetails,return_journey,twowaydetails } = useContext(GlobalContext);
-  console.log(twowaydetails)
+  //console.log(twowaydetails)
     let drawer_class = ['side-drawer'];
     // if (show) {
     //     drawer_class.push('open')

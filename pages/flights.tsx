@@ -66,13 +66,13 @@ const Flights = () => {
     setArrival(tofrom.tocode);
     setToFrom(tofrom)
    
-    console.log(tofrom)
+    //console.log(tofrom)
   }
   const [current_date, setCurrentDate] = useState<Array<String>>([]);
   const [return_date, setReturnDate] = useState<Array<String>>([]);
   // useEffect(() => {
   //   const today = (new Date());
-  //   console.log(today.toString().split(" "))
+  //   //console.log(today.toString().split(" "))
   //   setCurrentDate(today.toString().split(" "))
     
   // },[])
@@ -95,7 +95,7 @@ const Flights = () => {
       const mon = parseInt(months.indexOf(date[1])) + 1
       tofrom.currentmonth = ((mon < 10 ? '0' : '') + mon).toString();
   
-      console.log(months.indexOf(date[1]))
+      //console.log(months.indexOf(date[1]))
     } else {
       const date = value.toString().split(" ");
    
@@ -103,7 +103,7 @@ const Flights = () => {
       const mon = parseInt(months.indexOf(date[1])) + 1
       tofrom.returnmonth = ((mon < 10 ? '0' : '') + mon).toString();
   
-      console.log(months.indexOf(date[1])) 
+      //console.log(months.indexOf(date[1])) 
     }
     AOS.init({
       disable: false,
@@ -140,7 +140,7 @@ const Flights = () => {
       }).then((res) => {
        return res.json()
       }).then((re) => {
-        console.log(re)
+        //console.log(re)
         setSearchCity(re);
         setLoadingCity(false)
      })
@@ -152,7 +152,7 @@ const Flights = () => {
     }
   }
   async function selectFinalCity(val) {
-    console.log(val)
+    //console.log(val)
     const sp = val.city.split(",");
     if (current_option === "departure") {
      
@@ -160,7 +160,7 @@ const Flights = () => {
       tofrom.frcode = val.iatacode;
       tofrom.frcity = sp[0].trim();
       tofrom.frcountry = sp[1].split("-")[0].trim()
-      console.log(tofrom)
+      //console.log(tofrom)
       setFormState(null)
 
     } else if (current_option === "arrival") {
@@ -430,7 +430,7 @@ const Flights = () => {
              <p onClick={()=>setFormState(null)} className="header-form">Select departure date</p>
           <Calendar
               onChange={(val) => {
-                console.log(val)
+                //console.log(val)
                 onChange(val);
                 setFormState(null)
               }}

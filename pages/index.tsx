@@ -77,7 +77,7 @@ data-aos-easing="ease-in-out"
           <Offer name="Your first booking" perce={20}/>
         </div>
         </div> */}
-     {/* <InView as="div" onChange={(inView, entry) => console.log('Inview:', inView)}>
+     {/* <InView as="div" onChange={(inView, entry) => //console.log('Inview:', inView)}>
      <h2>Plain children are always rendered. Use onChange to monitor state.</h2>
       </InView> */}
         

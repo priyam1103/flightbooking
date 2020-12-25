@@ -56,7 +56,7 @@ export async function getServerSideProps(context:RequestBody) {
     }
   }).catch((err) => {
     error = true
-    console.log(err)
+    //console.log(err)
   })
 
   return {
@@ -64,7 +64,7 @@ export async function getServerSideProps(context:RequestBody) {
   }
 }
 const Search: NextPage<Props> =(props:Props)=> {
-  console.log(props)
+  //console.log(props)
   const [returnJourney, setReturnJourney] = useState(false);
   React.useEffect(() => {
     if (props.return_) {
@@ -455,7 +455,7 @@ filter_data.stops = stops;
               <>
                 {data.flt.map((item, index) => {
                   if (index === data.flt.length - 1) {
-                    console.log(item.ft)
+                    //console.log(item.ft)
                   }
                   return (
                     <div key={index} className="search-card" onClick={() => {
