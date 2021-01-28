@@ -128,8 +128,14 @@ const Flights = () => {
     setFormState("calender");
   }
   async function searchCity(search_val: string,) {
+    var letters = /^[A-Za-z]+$/;
     setLoadingCity(true)
     if (search_val.length >= 3) {
+      if (!search_val.match(letters)) {
+        alert('Please enter valid airport')
+      }
+    }
+    if (search_val.length >= 3 && search_val.match(letters)) {
       const body:Object = {
         Input : search_val.toString()
       }
@@ -143,7 +149,10 @@ const Flights = () => {
         //console.log(re)
         setSearchCity(re);
         setLoadingCity(false)
-     })
+      })
+        .catch((err) => {
+        setSearchCity([])
+      })
     } else if (search_city.length != 0) {
       setLoadingCity(false)
       setSearchCity([])
